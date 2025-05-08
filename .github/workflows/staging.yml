@@ -31,5 +31,5 @@ jobs:
           file: ./docker/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCHUB_USERNAME }}/var_keeper:${{ steps.cut.outputs.sha_short }}
-            ${{ secrets.DOCHUB_USERNAME }}/var_keeper:latest
+            ${{ format('{0}/var_keeper:{1}', secrets.DOCHUB_USERNAME, steps.cut.outputs.sha_short) }}
+            ${{ format('{0}/var_keeper:latest', secrets.DOCHUB_USERNAME) }}
